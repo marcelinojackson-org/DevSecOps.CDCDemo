@@ -27,3 +27,26 @@ This generates `.secrets/secrets.env` (if missing), brings up the stack, and reg
 ```
 ./scripts/check.sh
 ```
+
+## Seeded data
+- `customers`: 100 rows
+- `orders`: 2,000 rows
+- `order_items`: 10,000 rows
+
+## Services and ports
+- MySQL: `localhost:3306`
+- Postgres: `localhost:5432`
+- Kafka: `localhost:9092`
+- Kafka Connect: `localhost:8083`
+- Schema Registry: `localhost:8081`
+- Kafka UI: `localhost:8080`
+
+## Secrets
+- Stored in `.secrets/secrets.env`
+- Generated defaults are non-sensitive and can be changed anytime
+
+## Notes
+- If you update connector templates, re-run:
+```
+./scripts/register-connectors.sh
+```

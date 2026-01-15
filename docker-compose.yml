@@ -47,3 +47,15 @@ services:
     volumes:
       - ./mysql/conf.d:/etc/mysql/conf.d:ro
       - ./mysql/init:/docker-entrypoint-initdb.d:ro
+
+  postgres:
+    image: postgres:15
+    container_name: cdc-postgres
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./.secrets/secrets.env
+    environment:
+      POSTGRES_DB: appdb
+    volumes:
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro

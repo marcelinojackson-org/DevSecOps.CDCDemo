@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   kafka:
     image: confluentinc/cp-kafka:7.6.1
@@ -8,6 +6,7 @@ services:
     ports:
       - "9092:9092"
     environment:
+      CLUSTER_ID: "qkT2y9FVS2mR3x9VhG0kPQ"
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: "broker,controller"
       KAFKA_LISTENERS: "PLAINTEXT://kafka:9092,CONTROLLER://kafka:9093"
@@ -86,7 +85,7 @@ services:
       CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/confluent-hub-components"
 
   kafka-ui:
-    image: provectuslabs/kafka-ui:0.7.2
+    image: provectuslabs/kafka-ui:latest
     container_name: cdc-kafka-ui
     depends_on:
       - kafka
